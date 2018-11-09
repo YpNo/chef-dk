@@ -42,19 +42,20 @@ instance_eval(IO.read(overrides_path), overrides_path)
 
 dependency "preparation"
 
-# For the Delivery build nodes
-dependency "delivery-cli"
-# This is a build-time dependency, so we won't leave it behind:
-dependency "rust-uninstall"
+# # For the Delivery build nodes
+# dependency "delivery-cli"
+# # This is a build-time dependency, so we won't leave it behind:
+# dependency "rust-uninstall"
 
-# Leave for last so system git is used for most of the build.
-if windows?
-  dependency "git-windows"
-else
-  dependency "git-custom-bindir"
-end
+# # Leave for last so system git is used for most of the build.
+# if windows?
+#   dependency "git-windows"
+# else
+#   dependency "git-custom-bindir"
+# end
 
 dependency "chef-dk"
+dependency "chef-dk-gem-versions"
 
 dependency "gem-permissions"
 dependency "rubygems-customization"
